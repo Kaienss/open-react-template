@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
-import { SectionProps } from '../../utils/SectionProps';
-import ButtonGroup from '../elements/ButtonGroup';
-import Button from '../elements/Button';
-import Image from '../elements/Image';
-import Modal from '../elements/Modal';
-
+import React, { useState, useEffect } from "react";
+import classNames from "classnames";
+import { SectionProps } from "../../utils/SectionProps";
+import ButtonGroup from "../elements/ButtonGroup";
+import Button from "../elements/Button";
+import Image from "../elements/Image";
+import Modal from "../elements/Modal";
+// import Deck from "../../Deck";
+import { Link } from "react-router-dom";
 const propTypes = {
-  ...SectionProps.types
-}
+  ...SectionProps.types,
+};
 
 const defaultProps = {
-  ...SectionProps.defaults
-}
+  ...SectionProps.defaults,
+};
 
 const Hero = ({
   className,
@@ -24,63 +25,139 @@ const Hero = ({
   invertColor,
   ...props
 }) => {
-
   const [videoModalActive, setVideomodalactive] = useState(false);
 
   const openModal = (e) => {
     e.preventDefault();
     setVideomodalactive(true);
-  }
+  };
 
   const closeModal = (e) => {
     e.preventDefault();
     setVideomodalactive(false);
-  }   
+  };
 
   const outerClasses = classNames(
-    'hero section center-content',
-    topOuterDivider && 'has-top-divider',
-    bottomOuterDivider && 'has-bottom-divider',
-    hasBgColor && 'has-bg-color',
-    invertColor && 'invert-color',
+    "hero section center-content ",
+    topOuterDivider && "has-top-divider",
+    bottomOuterDivider && "has-bottom-divider",
+    hasBgColor && "has-bg-color",
+    invertColor && "invert-color",
     className
   );
 
   const innerClasses = classNames(
-    'hero-inner section-inner',
-    topDivider && 'has-top-divider',
-    bottomDivider && 'has-bottom-divider'
+    "hero-inner section-inner removeBottomPadding",
+    topDivider && "has-top-divider",
+    bottomDivider && "has-bottom-divider"
   );
 
   return (
-    <section
-      {...props}
-      className={outerClasses}
-    >
-      <div className="container-sm">
+    <section {...props} className={outerClasses}>
+      <div data-aos="fade-up" className="container-sm">
         <div className={innerClasses}>
           <div className="hero-content">
-            <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-              Landing template for <span className="text-color-primary">startups</span>
-            </h1>
+            <h2
+              className="mt-7 mb-16 reveal-from-bottom"
+              data-reveal-delay="200"
+              data-aos="fade-up"
+            >
+              <span className="text-color-primary">Invest </span>
+              in Model Portfolios for Free
+            </h2>
             <div className="container-xs">
-              <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
-                Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
-                </p>
+              <p
+                className="m-0 mb-32 reveal-from-bottom"
+                data-reveal-delay="400"
+                data-aos="fade-up"
+              >
+                by simply linking your brokerage account. We do NOT store your
+                brokerage credentials or ask for any personal information.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container-l home-banner" data-aos="fade-up">
+        <a
+          data-video="https://www.bucketsinvesting.com/videos/buckets.mp4"
+          href="#0"
+          aria-controls="video-modal"
+          onClick={openModal}
+          className="home-bannerImg"
+        >
+          <Image
+            src={require("./../../assets/images/webVideoPoster.png").default}
+            alt="Hero"
+            style={{
+              height: "100%",
+              width: "100%",
+              borderRadius: 25,
+            }}
+          />
+        </a>
+      </div>
+      <div data-aos="fade-up" className="container-sm">
+        <div className={innerClasses}>
+          <div className="hero-content">
+            <div className="container-xs">
               <div className="reveal-from-bottom" data-reveal-delay="600">
-                <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="https://cruip.com/">
-                    Get started
+                <ButtonGroup data-aos="fade-up">
+                  <div className="downloadBtn">
+                    <a
+                      href="https://apps.apple.com/ca/app/buckets-investing/id1599720367"
+                      className="downloadTextWrapper"
+                    >
+                      <label className="downloadText">Get it for iPhone</label>
+                    </a>
+                  </div>
+
+                  <div className="downloadBtn">
+                    <a
+                      href="https://www.bucketsinvesting.com/files/buckets_investing.apk"
+                      className="downloadTextWrapper"
+                    >
+                      <label className="downloadText">Get it for Android</label>
+                    </a>
+                  </div>
+                  {/* <Button
+                    tag="a"
+                    color="primary"
+                    wideMobile
+                    href="#newsletterSection"
+                    className="landingButton"
+                  >
+                    Get Access
+                  </Button> */}
+                  {/* <Link to="/demo">
+                    <Button
+                      tag="a"
+                      color="dark"
+                      wideMobile
+                      className="landingButton"
+                    >
+                      View demo
                     </Button>
-                  <Button tag="a" color="dark" wideMobile href="https://github.com/cruip/open-react-template/">
-                    View on Github
-                    </Button>
+                  </Link> */}
                 </ButtonGroup>
               </div>
             </div>
           </div>
-          <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
-            <a
+
+          <div
+            className="hero-figure reveal-from-bottom illustration-element-01"
+            data-reveal-value="20px"
+            data-reveal-delay="800"
+          >
+            {/* <Image 
+                  src={require("../../assets/images/canva.png").default}
+                  width={2000}
+                  height={768}
+              /> */}
+
+            {/* <Deck /> */}
+
+            {/* <a
               data-video="https://player.vimeo.com/video/174002812"
               href="#0"
               aria-controls="video-modal"
@@ -88,23 +165,27 @@ const Hero = ({
             >
               <Image
                 className="has-shadow"
-                src={require('./../../assets/images/video-placeholder.jpg')}
+                src={
+                  require("./../../assets/images/video-placeholder.jpg").default
+                }
                 alt="Hero"
                 width={896}
-                height={504} />
-            </a>
+                height={504}
+              />
+            </a> */}
           </div>
-          <Modal
-            id="video-modal"
-            show={videoModalActive}
-            handleClose={closeModal}
-            video="https://player.vimeo.com/video/174002812"
-            videoTag="iframe" />
         </div>
       </div>
+      <Modal
+        id="video-modal"
+        show={videoModalActive}
+        handleClose={closeModal}
+        video="https://www.bucketsinvesting.com/videos/buckets.mp4"
+        videoTag="iframe"
+      />
     </section>
   );
-}
+};
 
 Hero.propTypes = propTypes;
 Hero.defaultProps = defaultProps;

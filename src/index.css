@@ -1,0 +1,326 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 100px;
+  top: 100px;
+  display: none;
+}
+
+.rotateImg180 {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.deckWrapper {
+  overscroll-behavior-y: contain;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 504px;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  overflow: hidden;
+  cursor: url("https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png")
+      39 39,
+    auto;
+}
+.cardWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aqua; */
+  box-sizing: border-box;
+}
+
+.card {
+  background-color: white;
+  background-size: auto 90%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 33.75vh;
+  max-width: 300px;
+  height: 63.75vh;
+  max-height: 570px;
+  will-change: transform;
+  border-radius: 10px;
+  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+    0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  box-sizing: border-box;
+}
+
+.addWaitingList {
+  cursor: pointer;
+  pointer-events: all !important;
+}
+
+.waitingListBackground {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  max-width: 100%;
+  z-index: 999999999;
+  position: fixed;
+  top: 0;
+  overflow-y: auto;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 65px 5px;
+  -webkit-animation: fadein 0.7s;
+  -moz-animation: fadein 0.7s;
+  -ms-animation: fadein 0.7s;
+  -o-animation: fadein 0.7s;
+  animation: fadein 0.7s;
+  background: rgba(77, 86, 108, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+/* not found */
+
+.utility-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  max-height: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.utility-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  height: 100%;
+  margin-bottom: 0px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.text-mono {
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.utility-content {
+  max-width: 580px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.utility-content h1 {
+  margin-top: 0px;
+  margin-bottom: 0.4em;
+  font-size: 3.125rem;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.updateDisclosure {
+  position: relative;
+  font-size: 10px;
+  line-height: 10px;
+  color: white;
+}
+html {
+  scroll-behavior: smooth;
+}
+.brokerageContainer {
+  display: flex;
+  justify-content: center;
+}
+.brokerageHeader {
+  text-align: center;
+  padding-bottom: 80px;
+}
+.aboutTeamHeader {
+  text-align: center;
+}
+@media (min-width: 648px) {
+  .brokerage {
+    display: flex;
+    flex-direction: "row";
+    justify-content: space-between;
+    margin-bottom: 80px;
+    max-width: 1120px;
+    flex: 1;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .brokerageImage {
+    overflow: hidden;
+    width: 70px !important;
+    height: 70px !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    background-color: transparent;
+  }
+}
+@media (max-width: 649px) {
+  .brokerage {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+    width: 100%;
+    justify-content: center;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .brokerageImage {
+    overflow: hidden;
+    width: 70px !important;
+    height: 70px !important;
+    margin: 10px;
+    cursor: pointer;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    background-color: transparent;
+  }
+}
+
+#brokerage-fidelity {
+  background-image: url("./assets/fidelity-seeklogo.png");
+}
+#brokerage-robinhood {
+  background-image: url("./assets/robinhood.png");
+}
+#brokerage-alpaca {
+  background-image: url("./assets/alpaca.png");
+}
+#brokerage-cs {
+  background-image: url("./assets/Charles_Schwab_Corporation_logo.png");
+}
+#brokerage-td {
+  background-image: url("./assets/td_ameritradelogo.png");
+}
+#brokerage-wealthsimple {
+  background-image: url("./assets/wealthSimple.png");
+}
+#brokerage-coinbase {
+  background-image: url("./assets/coinbaselogo.png");
+}
+
+.centerImage {
+  justify-content: center;
+}
+.storyText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+.removeBottomPadding {
+  padding-bottom: 0 !important;
+}
+.highlightTr {
+  border-radius: 5px;
+}
+.downloadTextWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+.downloadTextSm {
+  display: block;
+  font-size: large;
+}
+.downloadText {
+  display: block;
+  font-size: large;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+.faq-container {
+  background-color: #25282c;
+  border-radius: 25px;
+  padding: 0px !important;
+  overflow: hidden;
+}
+.faq-question {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.5px solid rgba(156, 169, 179, 0.05);
+  cursor: pointer;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.faq-question-text {
+  margin: 10px !important;
+  font-weight: 400 !important;
+  color: #9ca9b3 !important;
+  font-size: large !important;
+}
+.faq-answer-text {
+  margin: 10px !important;
+  margin-top: 0px !important;
+  font-weight: 400 !important;
+  color: #9ca9b3 !important;
+  font-size: medium !important;
+}
+.faq-response {
+  width: 100%;
+  background-color: #393e45;
+  padding: 25px;
+}
